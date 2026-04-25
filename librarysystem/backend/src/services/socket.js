@@ -1,0 +1,12 @@
+let ioInstance;
+
+export const setIO = (io) => {
+  ioInstance = io;
+};
+
+export const getIO = () => ioInstance;
+
+export const emitToRoom = (room, event, payload) => {
+  if (!ioInstance) return;
+  ioInstance.to(room).emit(event, payload);
+};
